@@ -6,13 +6,12 @@ import {
 } from "react-router-dom";
 import './index.css'
 import HomePage from './pages/HomePage/HomePage';
-import Header from './components/Header/Header';
+
 
 
 render(
   
   <BrowserRouter>
-  <Header/>
     <Routes>
       <Route path="/" element={<HomePage />}>
       </Route>

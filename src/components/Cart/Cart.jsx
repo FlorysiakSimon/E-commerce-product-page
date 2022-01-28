@@ -1,27 +1,22 @@
 import React from 'react';
+import './Cart.scss';
 
-export default function Cart({style,modalOpen,modalClose}) {
-    const defaultStyles = {
-        overlay:{
-            width: '100vw',
-            height: '100vh',
-            top: '0',
-            left: '0',
-            right: '0',
-            bottom: '0',
-            position: 'fixed',
-            background: 'transparent',
-        }
-    }
-    if(!modalOpen){return null;}
+export default function Cart({style,cartOpen,cartClose,items}) {
+    
+    if(!cartOpen){return null;}
 
     return( 
         <div className='flexCart-cart'>
-            <div onClick={modalClose}
-                style={style && style.overlay ? style.overlay : defaultStyles.overlay}
-                className="modalOverlay">
-            </div>
             <h2>Cart</h2>
+            <div className='flexCart-cart-container'>
+                <img src={items.src} alt="img product" />
+                <div className='flexCart-cart-container-txt'>
+                    <p>{items.name}</p>
+                    <p>{items.price} x 3 <span>375.00</span></p>
+                </div>
+                <img className='flexCart-cart-container-delete' src="./images/icon-delete.svg" alt="remove item" />
+            </div>
+            <button type='button'>Checkout</button>
             <p>your cart is empty</p>
         </div>);
 }

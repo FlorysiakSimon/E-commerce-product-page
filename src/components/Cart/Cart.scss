@@ -1,0 +1,67 @@
+.flexCart-cart {
+  background-color: white;
+  position: absolute;
+  z-index: 90;
+  margin-left: 10px;
+  margin-right: 7em;
+  border-radius: 10px;
+  width: 350px;
+  height: 300px;
+  right: -40px;
+  margin-top: 1em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  & h2 {
+    padding: 1em;
+    display: block;
+    font-size: 18px;
+    line-height: 10px;
+    color: var(--dark-blue);
+    border-bottom: 1px solid var(--light-grayish);
+  }
+  & button {
+    background-color: var(--orange);
+    color: white;
+    width: 92%;
+    padding: 1.2em;
+    font-weight: 700;
+    margin: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+  }
+  &-container {
+    padding: 0 1em;
+    align-items: center;
+    p {
+      margin: 0;
+      span {
+        font-weight: 700;
+        color: var(--dark-blue);
+      }
+    }
+    img {
+      width: 50px;
+      border-radius: 5px;
+      margin-right: 1em;
+    }
+    display: flex;
+    &-txt {
+      display: flex;
+      flex-direction: column;
+    }
+    &-delete {
+      width: 15px !important;
+      height: 15px;
+      margin-left: 4.5em;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .flexCart-cart {
+    width: 90%;
+    margin-right: 4em;
+    height: 300px;
+  }
+}
