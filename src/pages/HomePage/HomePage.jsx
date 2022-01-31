@@ -7,11 +7,14 @@ export default function HomePage() {
     const [carouselOpen, setCarouselOpen] = React.useState(false);
     const [sliderIndex,setSliderIndex] = React.useState(0)
     const [numbersItems,setNumbersItems] = React.useState(0)
+    const [cartItems,setCartItems] = React.useState()
 
-    const items = {
+    const item = {
+            id:"1",
             src:"./images/image-product-1-thumbnail.jpg",
             name:"Fall Limited Edition",
-            price:"$125.00"
+            price:"$125.00",
+            numbers:numbersItems,
         }
     
     const plusSlide = () =>{
@@ -43,10 +46,31 @@ export default function HomePage() {
        ? setNumbersItems(numbersItems - 1)
        : setNumbersItems(0)
     }
+
+    const handleAddToCart = () => {
+        if(numbersItems === 0){
+            return false
+        }
+        if(!cartItems) {
+            setCartItems(item)
+            return true
+        }
+        const oldNumbers=(cartItems.numbers)
+        
+        setCartItems(prevState => ({
+            ...prevState,
+            numbers: numbersItems + oldNumbers
+        }));
     
+    }
+
+    const handleRemove = () => {
+        setCartItems()
+    }
+
     return (
     <>
-        <Header items={items}/>
+        <Header items={cartItems} handleRemove={handleRemove}/>
         <Carousel 
             carouselClose={toggleCarousel} 
             carouselOpen={carouselOpen} 
@@ -72,17 +96,20 @@ export default function HomePage() {
                 <h2>Sneaker company</h2>
                 <h3>Fall Limited Edition Sneakers</h3>
                 <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-                <div className='wrapper-txt-price'>
-                    <p>$125.00<span>50%</span></p>
+                <div className='wrap'>
+                    <div className='wrapper-txt-price'>
+                        <p>$125.00<span>50%</span></p>
+                    </div>
+                    <p className='wrapper-txt-oldprice'>$250.00</p>  
                 </div>
-                <p className='wrapper-txt-oldprice'>$250.00</p>
+                
                 <div className='wrapper-txt-buttons'>
                     <div className="wrapper-txt-buttons-cart">
                             <span className="wrapper-txt-buttons-cart-minus" onClick={lessItem}>-</span>
                             <span className="wrapper-txt-buttons-cart-total">{numbersItems}</span>
                             <span className="wrapper-txt-buttons-cart-plus" onClick={plusItem}>+</span>
                     </div>
-                    <button type='button'><img src="./images/icon-cart-button.svg" alt="add-to-cart"/>Add to cart</button>
+                    <button onClick={handleAddToCart} type='button'><img src="./images/icon-cart-button.svg" alt="add-to-cart" />Add to cart</button>
                 </div>
             </div>
         </div>

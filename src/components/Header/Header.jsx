@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss'
 import Cart from '../Cart/Cart.jsx'
-export default function Header({items}) {
+export default function Header({items,handleRemove}) {
 
     const [cartOpen, setcartOpen] = React.useState(false);
     const [sideBar,setSideBar] = React.useState(false)
@@ -28,13 +28,13 @@ export default function Header({items}) {
             </div>
         </div>
         <div className='flexCart'>
-            
+            {items ? <span>{items.numbers}</span> : null}
             <img src="./images/icon-cart.svg" onClick={toggleCart} alt="cart" />
             <img className='flexCartAvatar' src="./images/image-avatar.png" alt="user-avatar"/>
         </div>
     </nav>
     
-    <Cart cartOpen={cartOpen} cartClose={toggleCart} items={items}/>
+    <Cart cartOpen={cartOpen} cartClose={toggleCart} items={items} handleRemove={handleRemove}/>
     </>
 );
 }

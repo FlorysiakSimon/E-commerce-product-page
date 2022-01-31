@@ -193,6 +193,26 @@
     }
     &-txt {
       padding: 0 2em;
+      &-oldprice {
+        margin-bottom: 0;
+      }
+      &-buttons {
+        flex-direction: column;
+        &-cart {
+          width: 100%;
+        }
+        button {
+          margin-top: 1em;
+          width: 100%;
+          padding: 1em;
+        }
+      }
     }
+  }
+  .wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }

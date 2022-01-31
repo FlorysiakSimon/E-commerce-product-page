@@ -6,6 +6,7 @@ nav {
   flex-direction: row;
   justify-content: space-around;
   height: 100px;
+
   .flexnav {
     display: flex;
     align-items: center;
@@ -54,6 +55,16 @@ nav {
       &:hover {
         border: 2px solid var(--orange);
       }
+    }
+    span {
+      background-color: var(--orange);
+      color: var(--white);
+      padding: 0 0.7em;
+      font-size: 12px;
+      border-radius: 0.5rem;
+      position: absolute;
+      top: 12px;
+      right: 80px;
     }
   }
 }
