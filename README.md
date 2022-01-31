@@ -19,7 +19,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [netlify]()
+- Live Site URL: [netlify](https://e-commerce-page-sf.netlify.app/)
 
 ## Prerequisites
 
